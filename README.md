@@ -6,10 +6,11 @@ Maven 3.6+
 Spring Boot 3+
 
 1.2 Build and Run
-Static resources:
-Place the product.csv file in the resources/static directory. If modification is needed, please follow the format: productId,productName.
 Clone the code repository and execute the following commands in the project directory:
 It is recommended to use idea to start the project
+
+1.3 Static resources:
+Place the product.csv file in the resources/static directory. If modification is needed, please follow the format: productId,productName.
 # Compile the project
 mvn clean package
 # Run the Spring Boot application
