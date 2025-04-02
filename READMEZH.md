@@ -9,6 +9,7 @@ Spring Boot 3+
 静态资源：
 product.csv文件放在resources/static目录下，如需修改，请按照productId,productName进行修改。
 克隆代码仓库，并在项目目录下执行以下命令：
+建议使用idea启动项目
 # 编译项目
 mvn clean package
 # 运行 Spring Boot 应用
