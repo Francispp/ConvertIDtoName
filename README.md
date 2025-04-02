@@ -23,7 +23,7 @@ By default, the service will run at **http://localhost:8080/**.
 File upload:
 Use a POST request to the /api/trades/enrich endpoint to upload the trade.csv file.
 Example request:
-curl -X POST "http://localhost:8080/api/trades/enrich" \
+curl -X POST "http://localhost:8080/TradeEnrichmentController/enrich" \
 -H "Content-Type: multipart/form-data" \
 -F "file=@trade.csv"
 
@@ -40,13 +40,13 @@ Skip invalid date data: If the date format in the CSV file is incorrect, that da
 
 3.2 How to Modify Limitations
 To adjust the file size limit, please modify application.properties:
-spring.servlet.multipart.max-file-size=20MB
-spring.servlet.multipart.max-request-size=20MB
+spring.servlet.multipart.max-file-size=50MB
+spring.servlet.multipart.max-request-size=50MB
 
 4. # Design Discussions/Comments
 4.1 Code Structure
-TradeController.java is responsible for receiving and processing HTTP requests.
-TradeService.java is responsible for parsing CSV and validating data.
+TradeEnrichmentController.java is responsible for receiving and processing HTTP requests.
+TradeEnrichmentService.java is responsible for parsing CSV and validating data.
 GlobalExceptionHandler.java handles errors uniformly and returns HTTP responses.
 model/Trade.java defines the Trade transaction object.
 

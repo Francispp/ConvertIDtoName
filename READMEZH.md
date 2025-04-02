@@ -23,7 +23,7 @@ mvn spring-boot:run
 上传文件：
 使用 POST 请求到 /api/trades/enrich 接口，上传 trade.csv 文件。
 示例请求
-curl -X POST "http://localhost:8080/api/trades/enrich" \
+curl -X POST "http://localhost:8080/TradeEnrichmentController/enrich" \
 -H "Content-Type: multipart/form-data" \
 -F "file=@trade.csv"
 2.3 响应结果：
@@ -39,21 +39,21 @@ curl -X POST "http://localhost:8080/api/trades/enrich" \
 
 3.2 如何修改限制
 如果需要调整 文件大小限制，请修改 application.properties：
-spring.servlet.multipart.max-file-size=20MB
-spring.servlet.multipart.max-request-size=20MB
+spring.servlet.multipart.max-file-size=50MB
+spring.servlet.multipart.max-request-size=50MB
 
 
 4. # 设计方面的讨论/评论
 4.1 代码结构
-TradeController.java 负责接收和处理 HTTP 请求。
-TradeService.java 负责解析 CSV 并校验数据。
+TradeEnrichmentController.java 负责接收和处理 HTTP 请求。
+TradeEnrichmentService.java 负责解析 CSV 并校验数据。
 GlobalExceptionHandler.java 统一处理错误并返回 HTTP 响应。
 model/Trade.java 定义了 Trade 交易对象。
 
 4.2 设计思路
 采用 Spring Boot + REST API，保证扩展性。
 全局异常处理，避免在 Controller 层写重复的 try-catch。
-数据校验逻辑 放在 TradeService，保持 Controller 简洁。
+数据校验逻辑 放在 TradeEnrichmentService，保持 Controller 简洁。
 
 5. # 如果有更多时间，可以有哪些改进？
 数据库存储：
