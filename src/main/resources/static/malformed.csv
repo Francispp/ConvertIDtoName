@@ -1,0 +1,5 @@
+date,productId,currency,price
+20231001,1,EUR
+20231001,2,USD,20.1,EXTRA_COLUMN
+productId,date,currency,price
+3,20231001,GBP,30.34
