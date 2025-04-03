@@ -28,6 +28,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
+        <lombok.version>1.18.30</lombok.version>
     </properties>
     <dependencies>
         <dependency>
@@ -45,6 +46,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -52,11 +58,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
+                    <release>17</release>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -69,6 +78,7 @@
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
                         </exclude>
                     </excludes>
                 </configuration>
