@@ -27,11 +27,13 @@ Example request:
 curl -X POST "http://localhost:8080/TradeEnrichmentController/enrich" \
 -H "Content-Type: multipart/form-data" \
 -F "file=@trade.csv"
-The AWS online version can be directly called: http://43.201.28.13:8080/TradeEnrichmentController/enrich
 
 2.3 Response Results:
 Success: 200 OK
 Error: 400 Bad Request
+
+2.4 AWS Online Version
+The AWS online version can be directly called: http://43.201.28.13:8080/TradeEnrichmentController/enrich
 
 3. # Code Limitations
 

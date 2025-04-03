@@ -30,7 +30,9 @@ curl -X POST "http://localhost:8080/TradeEnrichmentController/enrich" \
 2.3 响应结果：
 成功：200 OK
 错误：400 Bad Request
-AWS在线版本可直接调用:http://43.201.28.13:8080/TradeEnrichmentController/enrich
+
+2.4 AWS 在线版本
+AWS 在线版本可直接调用：http://43.201.28.13:8080/TradeEnrichmentController/enrich
 
 3. # 代码的任何限制
 3.1 目前的限制
