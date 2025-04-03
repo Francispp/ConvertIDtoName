@@ -1,6 +1,0 @@
-org\example\convertidtoname\controller\TradeEnrichmentController.class
-org\example\convertidtoname\ConvertIDtoNameApplication.class
-org\example\convertidtoname\exception\GlobalExceptionHandler.class
-org\example\convertidtoname\model\Trade.class
-org\example\convertidtoname\service\TradeEnrichmentService.class
-org\example\convertidtoname\util\CsvParser.class

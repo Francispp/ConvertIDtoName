@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class CsvParser {
@@ -83,4 +84,26 @@ public class CsvParser {
     private static boolean isValidDate(String date) {
         return date.matches("\\d{8}");
     }
+
+    public static Map<String, String> loadProductDataFromStream(InputStream inputStream) {
+        Map<String, String> map = new HashMap<>();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            String line;
+            boolean firstLine = true;
+            while ((line = reader.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
+                String[] parts = line.split(",");
+                if (parts.length >= 2) {
+                    map.put(parts[0].trim(), parts[1].trim());
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load product data", e);
+        }
+        return map;
+    }
+
 }

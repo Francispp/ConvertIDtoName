@@ -9,20 +9,28 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class TradeEnrichmentService {
+
     @Value("classpath:static/product.csv")
-    private File productFile;
+    private Resource productResource;
 
     private final Logger logger = LoggerFactory.getLogger(TradeEnrichmentService.class);
 
     public String processTrades(MultipartFile file) {
-        Map<String, String> productMap = CsvParser.loadProductData(productFile.getPath());
-        List<Trade> trades = CsvParser.parseTradeCsv(file, productMap, logger);
-        return CsvParser.convertToCsv(trades);
+        try {
+            // 用 inputStream 读取 CSV 内容
+            InputStream inputStream = productResource.getInputStream();
+            Map<String, String> productMap = CsvParser.loadProductDataFromStream(inputStream);
+            List<Trade> trades = CsvParser.parseTradeCsv(file, productMap, logger);
+            return CsvParser.convertToCsv(trades);
+        } catch (Exception e) {
+            logger.error("Error processing trades", e);
+            return "Error: " + e.getMessage();
+        }
     }
 }

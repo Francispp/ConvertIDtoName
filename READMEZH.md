@@ -30,9 +30,9 @@ curl -X POST "http://localhost:8080/TradeEnrichmentController/enrich" \
 2.3 响应结果：
 成功：200 OK
 错误：400 Bad Request
+AWS在线版本可直接调用:http://43.201.28.13:8080/TradeEnrichmentController/enrich
 
 3. # 代码的任何限制
-
 3.1 目前的限制
 文件大小限制：上传的 trade.csv 文件不能超过 50MB。
 数据格式严格：CSV 文件必须包含 4 列 (date, productId, currency, price)，否则请求会被拒绝。
