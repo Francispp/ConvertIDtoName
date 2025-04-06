@@ -23,7 +23,6 @@ public class TradeEnrichmentService {
 
     public String processTrades(MultipartFile file) {
         try {
-            // 用 inputStream 读取 CSV 内容
             InputStream inputStream = productResource.getInputStream();
             Map<String, String> productMap = CsvParser.loadProductDataFromStream(inputStream);
             List<Trade> trades = CsvParser.parseTradeCsv(file, productMap, logger);
