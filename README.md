@@ -32,9 +32,6 @@ curl -X POST "http://localhost:8080/TradeEnrichmentController/enrich" \
 Success: 200 OK
 Error: 400 Bad Request
 
-2.4 AWS Online Version
-The AWS online version can be directly called: http://43.201.28.13:8080/TradeEnrichmentController/enrich
-
 3. # Code Limitations
 
 3.1 Current Limitations
